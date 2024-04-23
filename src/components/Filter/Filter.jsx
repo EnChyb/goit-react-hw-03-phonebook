@@ -2,11 +2,6 @@ import PropTypes from 'prop-types';
 import css from './Filter.module.css'
 
 export const Filter = ({ filter, setFilter }) =>{
-    // const setFilterValue = (e) => {
-//     const value = e.target.value;
-//     //setFilter(value);
-//     console.log(value);
-//   }
 
     return (
         <div className={css.filter}>

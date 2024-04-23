@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import css from './App.module.css'
 ///
 
@@ -8,18 +8,18 @@ import { Filter } from "./Filter/Filter";
 
 export const App = () => {
 
-  //State
-  const [userData, setUserData] = useState([
-    // {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
-    // {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
-    // {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
-    // {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},   
-  ]);
+  //State - contacts are stored in local storage, if state is empty (no contacts), get empty array
+  const [userData, setUserData] = useState(JSON.parse(localStorage.getItem('contacts'))  || []);
   const [filter, setFilter] = useState('');
-  console.log(filter);
+
+  //Set contact to local storage - every changes in state
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(userData))
+  }, [userData])
 
   const addContact = newContact => {
     setUserData(prevContacts => [...prevContacts, newContact]);
+
     };
 
   //Take a  contact from userData, make a new Array without contact with contact with ID to delete, update new array
