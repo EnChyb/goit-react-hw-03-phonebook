@@ -1,4 +1,3 @@
-/* Stylizacja całego formularza */
 .filter {
     display: flex;
     flex-direction: column;
@@ -6,13 +5,11 @@
     margin: 0 auto;
 }
 
-/* Stylizacja etykiety (label) */
 .label {
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-/* Stylizacja pola tekstowego (input) */
 .input {
     padding: 10px;
     border: 1px solid #ccc;
